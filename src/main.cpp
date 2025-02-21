@@ -159,3 +159,10 @@ void compressFile(const string &filename) {
 
     cout << "📦 File compressed successfully as " << compressedFile << endl;  // Success message
 }
+
+// Function to create a backup of a file
+void backupFile(const string &filename) {
+    string backupName = filename + ".bak";  // Set name for the backup file
+    fs::copy(filename, backupName);  // Copy the original file to the backup file
+    cout << "🗂️ Backup created as " << backupName << endl;  // Success message
+}
