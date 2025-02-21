@@ -176,3 +176,56 @@ void encryptFile(const string &filename) {
 void decryptFile(const string &filename) {
     cout << "🔓 Decrypting file (Not implemented yet!)\n";
 }
+
+// Main menu
+int main() {
+    int choice;
+    string filename, newFilename;
+
+    do {
+        cout << "\n📂 **Advanced File Manager**\n";
+        cout << "1️⃣ Create a new file\n";
+        cout << "2️⃣ Write to a file\n";
+        cout << "3️⃣ Read from a file\n";
+        cout << "4️⃣ Delete a file\n";
+        cout << "5️⃣ Edit a file\n";
+        cout << "6️⃣ List files\n";
+        cout << "7️⃣ Search in a file\n";
+        cout << "8️⃣ Rename a file\n";
+        cout << "9️⃣ Compress a file\n";
+        cout << "🔟 Backup a file\n";
+        cout << "1️⃣1️⃣ Encrypt a file\n";
+        cout << "1️⃣2️⃣ Decrypt a file\n";
+        cout << "1️⃣3️⃣ Exit\n";
+        cout << "🔸 Your choice: ";
+        cin >> choice;
+
+        if (choice >= 1 && choice <= 5 || choice == 7 || choice == 9 || choice == 10 || choice == 11 || choice == 12) {
+            cout << "📌 Enter file name: ";
+            cin >> filename;
+        }
+
+        switch (choice) {  // Perform the operation based on user input
+            case 1: createFile(filename); break;
+            case 2: writeFile(filename); break;
+            case 3: readFile(filename); break;
+            case 4: deleteFile(filename); break;
+            case 5: editFile(filename); break;
+            case 6: listFiles(); break;
+            case 7: searchInFile(filename); break;
+            case 8: 
+                cout << "📌 Enter new file name: ";
+                cin >> newFilename;
+                renameFile(filename, newFilename);
+                break;
+            case 9: compressFile(filename); break;
+            case 10: backupFile(filename); break;
+            case 11: encryptFile(filename); break;
+            case 12: decryptFile(filename); break;
+            case 13: cout << "👋 Exiting program!\n"; break;
+            default: cout << "❌ Invalid option! Please try again.\n";
+        }
+    } while (choice != 13);  // Continue until the user selects exit option
+
+    return 0;
+}
