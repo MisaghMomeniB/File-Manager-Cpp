@@ -140,3 +140,22 @@ void renameFile(const string &oldName, const string &newName) {
         cout << "❌ Error renaming file: " << e.what() << "\n";
     }
 }
+
+// Function to compress a file using zlib
+void compressFile(const string &filename) {
+    ifstream file(filename, ios::binary);  // Open file for binary reading
+    if (!file) {  // If file not found
+        cout << "❌ File not found!\n";
+        return;
+    }
+
+    string compressedFile = filename + ".gz";  // Set name for the compressed file
+    ofstream outFile(compressedFile, ios::binary);  // Open file for binary writing
+    
+    char buffer[1024];  // Buffer to store data
+    while (file.read(buffer, sizeof(buffer))) {  // Read file in binary chunks
+        outFile.write(buffer, file.gcount());  // Write the data to the compressed file
+    }
+
+    cout << "📦 File compressed successfully as " << compressedFile << endl;  // Success message
+}
