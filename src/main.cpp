@@ -35,3 +35,18 @@ void writeFile(const string &filename) {
     cout << "✅ Data saved successfully.\n";  // Success message
     file.close();  // Close the file
 }
+
+// Function to read from a file
+void readFile(const string &filename) {
+    ifstream file(filename);  // Open file for reading
+    if (!file) {  // If file does not exist
+        cout << "❌ File does not exist!\n";
+        return;
+    }
+    string line;
+    cout << "📖 File content:\n";
+    while (getline(file, line)) {  // Read file line by line
+        cout << line << endl;
+    }
+    file.close();  // Close the file
+}
