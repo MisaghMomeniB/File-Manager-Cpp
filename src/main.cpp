@@ -97,3 +97,11 @@ void editFile(const string &filename) {
 
     cout << "✅ File updated successfully.\n";  // Success message
 }
+
+// Function to list all files in the current directory
+void listFiles() {
+    cout << "📂 Files in the current directory:\n";
+    for (const auto &entry : fs::directory_iterator(fs::current_path())) {  // Iterate over the directory
+        cout << entry.path().filename() << endl;  // Display file names
+    }
+}
