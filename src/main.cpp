@@ -105,3 +105,28 @@ void listFiles() {
         cout << entry.path().filename() << endl;  // Display file names
     }
 }
+
+// Function to search for a word in a file
+void searchInFile(const string &filename) {
+    ifstream file(filename);  // Open file for reading
+    if (!file) {  // If file does not exist
+        cout << "❌ File not found!\n";
+        return;
+    }
+
+    cout << "Enter word to search: ";
+    string word;
+    cin >> word;  // Read the word to search
+
+    string line;
+    int lineNumber = 0;
+    bool found = false;
+    while (getline(file, line)) {  // Read each line from the file
+        lineNumber++;
+        if (line.find(word) != string::npos) {  // Check if the word exists in the line
+            cout << "🔍 Found at line " << lineNumber << ": " << line << endl;
+            found = true;
+        }
+    }
+    if (!found) cout << "❌ Word not found in the file.\n";  // If word not found
+}
