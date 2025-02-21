@@ -5,3 +5,6 @@
 #include <algorithm>
 #include <zlib.h>  // For compression (requires linking with -lz)
 #include <openssl/aes.h>  // For encryption (requires OpenSSL)
+
+using namespace std;
+namespace fs = filesystem;
