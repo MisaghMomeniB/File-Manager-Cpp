@@ -50,3 +50,12 @@ void readFile(const string &filename) {
     }
     file.close();  // Close the file
 }
+
+// Function to delete a file
+void deleteFile(const string &filename) {
+    if (fs::remove(filename)) {  // Try to remove the file
+        cout << "🗑️ File " << filename << " deleted successfully.\n";
+    } else {
+        cout << "❌ File not found!\n";  // If file is not found
+    }
+}
