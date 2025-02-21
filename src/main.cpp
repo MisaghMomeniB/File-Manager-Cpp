@@ -59,3 +59,41 @@ void deleteFile(const string &filename) {
         cout << "❌ File not found!\n";  // If file is not found
     }
 }
+
+// Function to edit a specific line in a file
+void editFile(const string &filename) {
+    vector<string> lines;  // Vector to store file lines
+    ifstream file(filename);  // Open file for reading
+    if (!file) {  // If file not found
+        cout << "❌ File not found!\n";
+        return;
+    }
+
+    string line;
+    while (getline(file, line)) {  // Read all lines from the file
+        lines.push_back(line);
+    }
+    file.close();  // Close the file
+
+    cout << "Enter line number to edit: ";
+    int lineNumber;
+    cin >> lineNumber;
+    cin.ignore();  // Ignore the newline after the number input
+
+    if (lineNumber < 1 || lineNumber > lines.size()) {  // Check if line number is valid
+        cout << "❌ Invalid line number!\n";
+        return;
+    }
+
+    cout << "Enter new text: ";
+    string newText;
+    getline(cin, newText);  // Read new text from user
+    lines[lineNumber - 1] = newText;  // Replace the line with new text
+
+    ofstream outFile(filename);  // Open file for writing again
+    for (const auto &l : lines) {  // Write all lines back to the file
+        outFile << l << endl;
+    }
+
+    cout << "✅ File updated successfully.\n";  // Success message
+}
