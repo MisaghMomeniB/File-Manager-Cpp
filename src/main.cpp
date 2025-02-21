@@ -19,3 +19,19 @@ void createFile(const string &filename) {
     }
     file.close();  // Close the file
 }
+
+// Function to write to a file
+void writeFile(const string &filename) {
+    ofstream file(filename, ios::app);  // Open file in append mode
+    if (!file) {  // If file not found
+        cout << "❌ File not found!\n";
+        return;
+    }
+    string content;
+    cout << "✍️ Enter text to write:\n";
+    cin.ignore();
+    getline(cin, content);  // Read the input text from the user
+    file << content << endl;  // Write the content to the file
+    cout << "✅ Data saved successfully.\n";  // Success message
+    file.close();  // Close the file
+}
