@@ -171,3 +171,8 @@ void backupFile(const string &filename) {
 void encryptFile(const string &filename) {
     cout << "🔒 Encrypting file (Not implemented yet!)\n";
 }
+
+// Function to decrypt a file using AES (Not implemented yet)
+void decryptFile(const string &filename) {
+    cout << "🔓 Decrypting file (Not implemented yet!)\n";
+}
