@@ -130,3 +130,13 @@ void searchInFile(const string &filename) {
     }
     if (!found) cout << "❌ Word not found in the file.\n";  // If word not found
 }
+
+// Function to rename a file
+void renameFile(const string &oldName, const string &newName) {
+    try {
+        fs::rename(oldName, newName);  // Try to rename the file
+        cout << "✅ File renamed successfully.\n";
+    } catch (const fs::filesystem_error& e) {  // If there is an error
+        cout << "❌ Error renaming file: " << e.what() << "\n";
+    }
+}
