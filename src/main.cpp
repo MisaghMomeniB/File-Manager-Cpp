@@ -166,3 +166,8 @@ void backupFile(const string &filename) {
     fs::copy(filename, backupName);  // Copy the original file to the backup file
     cout << "🗂️ Backup created as " << backupName << endl;  // Success message
 }
+
+// Function to encrypt a file using AES (Not implemented yet)
+void encryptFile(const string &filename) {
+    cout << "🔒 Encrypting file (Not implemented yet!)\n";
+}
