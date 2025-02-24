@@ -43,6 +43,24 @@ To compile the program, make sure you have both `zlib` and `OpenSSL` installed.
    ./file_manager
    ```
 
+## Install and run with makefile
+
+1. **Install the program**
+   For compile and you can run program **filemanager** in linux commandline
+   ```bash
+   make clean
+   sudo make install
+   ```
+
+2. **For run with makefile**
+   ```bash
+   make run
+   ```
+3. **Clean project files**
+   ```bash
+   make clean
+   ```
+
 ## How to Use 🔧
 
 Once you run the program, you will be presented with a menu of operations to choose from. The interface is intuitive and will prompt you for additional information when needed. Here are the available actions:
